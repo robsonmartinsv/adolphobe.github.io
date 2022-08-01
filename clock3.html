@@ -1,4 +1,7 @@
-<div id = "clock" onload="currentTime()"></div>
+<div id="widget">
+<div id = "clock" style="font-weight:bold;" onload="currentTime()"></div>
+<div id ="data"></div>
+</div>
 <style>
 body {
   font-family: system-ui;
@@ -7,19 +10,29 @@ body {
   font-size:24px;
   text-align: center;
 }
-#clock{padding:20px; background:#eee;}
+#widget{padding:20px; background:#eee;}
+#data{padding-top:8px; font-size:14px;}
 </style>
 <script>
+
+var data = new Date();
+var dia = String(data.getDate()).padStart(2, '0');
+var mes = String(data.getMonth() + 1).padStart(2, '0');
+var ano = data.getFullYear();
+dataAtual = dia + '/' + mes + '/' + ano;
+ document.getElementById("data").innerText = dataAtual; 
+
+
 function currentTime() {
   let date = new Date(); 
   let hh = date.getHours();
   let mm = date.getMinutes();
   let ss = date.getSeconds();
-  let session = "AM";
+  let session = "";
 
     
   if(hh > 12){
-      session = "PM";
+      session = "";
    }
 
    hh = (hh < 10) ? "0" + hh : hh;
