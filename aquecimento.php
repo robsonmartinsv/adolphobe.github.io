@@ -29,6 +29,9 @@
   a:hover{color:white; text-decoration:none; background:#6e7bc1;}
 </style>
 
+<h2>Meu ip</h2>
+<?php echo "teste"; ?>
+
 <h2>Primeiro: aceitar cookies</h2>
 
 <div id="menu"><a class="botao" target="_blank" href="https://olhardigital.com.br">Olhar digital</a></div>
