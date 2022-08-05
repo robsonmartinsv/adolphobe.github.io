@@ -1,0 +1,74 @@
+<style>
+  body {
+	background: linear-gradient(-45deg, #ff9999, #3399ff, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+#widget{text-align:center}
+#data{padding-top:8px; font-size:14px; color:#FFF}
+#clock{color: #FFF;
+  font-size:24px;
+  text-align: center;}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+</style>
+<script>
+  // https://manuel.pinto.dev
+var data = new Date();
+var dia = String(data.getDate()).padStart(2, '0');
+var mes = String(data.getMonth() + 1).padStart(2, '0');
+var ano = data.getFullYear();
+dataAtual = 'Hoje é dia:  ' + dia + '/' + mes + '/' + ano;
+ document.getElementById("data").innerText = dataAtual; 
+
+
+function currentTime() {
+  let date = new Date(); 
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "";
+
+    
+  if(hh > 12){
+      session = "";
+   }
+
+   hh = (hh < 10) ? "0" + hh : hh;
+   mm = (mm < 10) ? "0" + mm : mm;
+   ss = (ss < 10) ? "0" + ss : ss;
+    
+   let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById("clock").innerText = time; 
+  var t = setTimeout(function(){ currentTime() }, 1000); 
+
+}
+
+currentTime();
+</script>
+
+<body>
+<div class="d-flex flex-column justify-content-center w-100 h-100">
+
+ 
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<div id="widget">
+<div id = "clock" style="font-weight:bold;" onload="currentTime()"></div>
+<div id ="data"></div>
+</div>
+</div>
+</div>
+</body>
