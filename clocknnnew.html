@@ -5,15 +5,12 @@
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: Roboto;
 }
-#widget{text-align:center}
+#widget{text-align:center; padding:17px;}
 #data{padding-top:8px; font-size:14px; color:#FFF}
 #clock{color: #FFF;
-  font-size:24px;
+  font-size:26px;
   text-align: center;}
 
 @keyframes gradient {
@@ -48,7 +45,7 @@ var data = new Date();
 var dia = String(data.getDate()).padStart(2, '0');
 var mes = String(data.getMonth() + 1).padStart(2, '0');
 var ano = data.getFullYear();
-dataAtual = dia + '/' + mes + '/' + ano;
+dataAtual = 'Hoje é dia:  ' +dia + '/' + mes + '/' + ano;
  document.getElementById("data").innerText = dataAtual; 
 
 
